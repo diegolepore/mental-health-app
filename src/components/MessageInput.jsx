@@ -1,11 +1,11 @@
-import { memo, useState } from 'react';
+import { useState } from 'react';
 
 function MessageInput({ addMessage }) {
   const [message, setMessage] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
+
     if (message.trim()) {
       addMessage(message);
       setMessage('');
@@ -29,5 +29,4 @@ function MessageInput({ addMessage }) {
   );
 }
 
-const MemoizedMessageInput = memo(MessageInput);
-export default MemoizedMessageInput;
+export default MessageInput;

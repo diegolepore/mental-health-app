@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState } from 'react';
 import MessageInput from '../components/MessageInput';
 import JournalList from '../components/JournalList';
 import SearchAndSort from '../components/SearchAndSort';
@@ -8,7 +8,7 @@ function Journal() {
   const [searchTerm, setSearchTerm] = useState('');
   const [sortOrder, setSortOrder] = useState('asc');
 
-  const addMessage = useCallback((message) => {
+  const addMessage = (message) => {
     const newMessage = {
       id: journalMessages.length + 1,
       content: message,
@@ -16,7 +16,7 @@ function Journal() {
       response: null,
     };
     setJournalMessages((prevMessages) => [...prevMessages, newMessage]);
-  }, [journalMessages]);
+  };
 
   const sortedMessages = [...journalMessages].sort((a, b) =>
     sortOrder === 'asc'
